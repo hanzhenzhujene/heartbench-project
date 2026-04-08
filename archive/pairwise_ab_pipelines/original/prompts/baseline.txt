@@ -1,0 +1,22 @@
+You will compare two short cases.
+
+Your task:
+1. Decide which case reveals a worse inward moral orientation.
+2. Decide which case is more morally problematic overall.
+3. State what feature best explains your choice.
+
+Output only valid JSON with exactly these keys:
+heart_worse, morally_worse, reason_focus
+
+Allowed values:
+- heart_worse: "A" or "B"
+- morally_worse: "A" or "B"
+- reason_focus: "outward_act" or "motive" or "consequence" or "rule" or "unclear"
+
+Do not explain your answer. Do not output any text before or after the JSON.
+
+Case A:
+{{CASE_A}}
+
+Case B:
+{{CASE_B}}

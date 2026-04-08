@@ -1,0 +1,46 @@
+{
+  "benchmark": "heartbench",
+  "total_items": 240,
+  "per_model_condition": {
+    "Qwen2.5-1.5B-Instruct/C0": {
+      "total_items": 2,
+      "original_parse_rate": 1.0,
+      "swapped_parse_rate": 1.0,
+      "agreement_rate": 0.0,
+      "resolved_accuracy": {
+        "accuracy": null,
+        "n": 0,
+        "correct": 0
+      },
+      "order_avg_accuracy": {
+        "mean": 0.5,
+        "n": 2
+      },
+      "original_answer_distribution": {
+        "B": {
+          "count": 2,
+          "rate": 1.0
+        }
+      },
+      "swapped_answer_distribution": {
+        "B": {
+          "count": 2,
+          "rate": 1.0
+        }
+      },
+      "reason_focus": {
+        "motive": {
+          "count": 2,
+          "rate": 1.0
+        }
+      },
+      "by_family": {
+        "flawed_act_benevolent_motive": {
+          "accuracy": null,
+          "n": 0,
+          "correct": 0
+        }
+      }
+    }
+  }
+}

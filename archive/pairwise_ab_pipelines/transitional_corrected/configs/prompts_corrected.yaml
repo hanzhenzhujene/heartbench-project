@@ -1,0 +1,31 @@
+conditions:
+  - id: "C0"
+    name: "baseline_evidence_grounded"
+    file: "prompts/corrected_baseline.txt"
+    description: "Baseline heart judgment with explicit evidence-grounding"
+  - id: "C1"
+    name: "neutral_heart_sensitive_evidence_grounded"
+    file: "prompts/corrected_neutral_heart_sensitive.txt"
+    description: "Heart-sensitive framing that only uses supported motive evidence"
+  - id: "C2"
+    name: "christian_heart_focused_evidence_grounded"
+    file: "prompts/corrected_christian_heart_focused.txt"
+    description: "Christian heart framing with explicit evidence-grounding"
+  - id: "C3"
+    name: "scripture_style_evidence_grounded"
+    file: "prompts/corrected_scripture_style.txt"
+    description: "Scripture-style framing with explicit evidence-grounding"
+  - id: "C4"
+    name: "secular_matched_evidence_grounded"
+    file: "prompts/corrected_secular_matched.txt"
+    description: "Secular matched framing with explicit evidence-grounding"
+
+repair_prompt_file: "prompts/corrected_repair_prompt.txt"
+
+output_schema:
+  keys:
+    - heart_worse
+    - reason_focus
+  allowed_values:
+    heart_worse: ["A", "B"]
+    reason_focus: ["outward_act", "motive", "consequence", "rule", "unclear"]

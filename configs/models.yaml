@@ -1,0 +1,14 @@
+models:
+  - name: "Qwen2.5-0.5B-Instruct"
+    hf_id: "Qwen/Qwen2.5-0.5B-Instruct"
+    short_name: "qwen05"
+  - name: "Qwen2.5-1.5B-Instruct"
+    hf_id: "Qwen/Qwen2.5-1.5B-Instruct"
+    short_name: "qwen15"
+
+generation:
+  temperature: 0
+  top_p: 1
+  do_sample: false
+  max_new_tokens: 128
+  seed: 42

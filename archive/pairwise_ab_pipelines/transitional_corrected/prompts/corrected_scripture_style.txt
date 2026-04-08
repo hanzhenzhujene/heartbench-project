@@ -1,0 +1,22 @@
+You will compare two short cases.
+
+Your task:
+1. Decide which case reveals a worse inward moral orientation.
+2. State what feature best explains your choice.
+
+Consider not only the outward act, but what proceeds from the heart, where the text gives evidence for that inference. Do not invent hidden motives that are not supported by the cases.
+
+Output only valid JSON with exactly these keys:
+heart_worse, reason_focus
+
+Allowed values:
+- heart_worse: "A" or "B"
+- reason_focus: "outward_act" or "motive" or "consequence" or "rule" or "unclear"
+
+Do not explain your answer. Do not output any text before or after the JSON.
+
+Case A:
+{{CASE_A}}
+
+Case B:
+{{CASE_B}}

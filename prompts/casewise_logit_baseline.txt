@@ -1,0 +1,18 @@
+You will evaluate one short case.
+
+Rate how strongly the case reveals a worse inward moral orientation.
+Use only evidence that is present in the text. Do not invent hidden motives.
+
+Scale:
+1 = clearly benevolent, humble, or loving inward orientation
+2 = somewhat better than average inward orientation
+3 = mixed, ambiguous, or unclear inward orientation
+4 = somewhat worse inward orientation
+5 = clearly selfish, hostile, manipulative, or corrupt inward orientation
+
+Reply with exactly one digit: 1, 2, 3, 4, or 5.
+
+Case:
+{{CASE_TEXT}}
+
+Answer:

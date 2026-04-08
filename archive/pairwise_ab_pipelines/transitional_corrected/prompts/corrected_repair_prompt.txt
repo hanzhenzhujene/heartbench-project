@@ -1,0 +1,12 @@
+Your previous answer was not valid JSON.
+
+Rewrite your previous answer as valid JSON only.
+
+Required keys:
+heart_worse, reason_focus
+
+Allowed values:
+- heart_worse: "A" or "B"
+- reason_focus: "outward_act" or "motive" or "consequence" or "rule" or "unclear"
+
+Do not add any extra text.

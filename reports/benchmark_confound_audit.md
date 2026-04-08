@@ -1,0 +1,103 @@
+# Benchmark Confound Audit
+
+### Moral Stories Subset
+- items: 240
+- heart==moral labels: 240/240
+- explicit motive support in shipped case text: 52/240
+- suspicious same_act_different_motive items with low lexical overlap: 0
+- traced intentions omitted from final case text: 240/240
+- average lexical overlap by family:
+  - flawed_act_benevolent_motive: 0.461
+  - good_act_corrupt_motive: 0.488
+  - mixed_motive_hard: 0.461
+  - same_act_different_motive: 0.778
+  - same_correction_different_heart: 0.478
+  - same_restraint_different_posture: 0.456
+
+### HeartBench-240
+- items: 240
+- heart==moral labels: 240/240
+- explicit motive support in shipped case text: 132/240
+- suspicious same_act_different_motive items with low lexical overlap: 40
+- average lexical overlap by family:
+  - flawed_act_benevolent_motive: 0.162
+  - good_act_corrupt_motive: 0.141
+  - mixed_motive_hard: 0.334
+  - same_act_different_motive: 0.300
+  - same_correction_different_heart: 0.293
+  - same_restraint_different_posture: 0.397
+- sample low-overlap same_act items: hb_sadm_001, hb_sadm_002, hb_sadm_003, hb_sadm_004, hb_sadm_005, hb_sadm_006, hb_sadm_007, hb_sadm_008
+
+### Moral Stories Main Results
+- Qwen2.5-0.5B-Instruct/C0:
+  - answer distribution: A=1.000, B=0.000
+  - top reason_focus rates: motive=1.000
+  - heart accuracy when reason_focus=motive: 0.487 (n=224)
+- Qwen2.5-0.5B-Instruct/C1:
+  - answer distribution: A=1.000, B=0.000
+  - top reason_focus rates: motive=1.000
+  - heart accuracy when reason_focus=motive: 0.488 (n=217)
+- Qwen2.5-0.5B-Instruct/C2:
+  - answer distribution: A=1.000, B=0.000
+  - top reason_focus rates: motive=0.996, outward_act=0.004
+  - heart accuracy when reason_focus=motive: 0.489 (n=229)
+  - heart accuracy when reason_focus=outward_act: 0.000 (n=1)
+- Qwen2.5-0.5B-Instruct/C3:
+  - answer distribution: A=1.000, B=0.000
+  - top reason_focus rates: motive=0.985, outward_act=0.015
+  - heart accuracy when reason_focus=motive: 0.490 (n=198)
+  - heart accuracy when reason_focus=outward_act: 0.000 (n=3)
+- Qwen2.5-0.5B-Instruct/C4:
+  - answer distribution: A=1.000, B=0.000
+  - top reason_focus rates: motive=0.986, outward_act=0.014
+  - heart accuracy when reason_focus=motive: 0.488 (n=215)
+  - heart accuracy when reason_focus=outward_act: 0.000 (n=3)
+- Qwen2.5-1.5B-Instruct/C0:
+  - answer distribution: A=0.758, B=0.242
+  - top reason_focus rates: motive=0.921, outward_act=0.079
+  - heart accuracy when reason_focus=motive: 0.620 (n=221)
+  - heart accuracy when reason_focus=outward_act: 0.789 (n=19)
+- Qwen2.5-1.5B-Instruct/C1:
+  - answer distribution: A=0.204, B=0.796
+  - top reason_focus rates: motive=0.992, outward_act=0.008
+  - heart accuracy when reason_focus=motive: 0.588 (n=238)
+  - heart accuracy when reason_focus=outward_act: 0.500 (n=2)
+- Qwen2.5-1.5B-Instruct/C2:
+  - answer distribution: A=0.992, B=0.008
+  - top reason_focus rates: motive=0.996, outward_act=0.004
+  - heart accuracy when reason_focus=motive: 0.510 (n=239)
+  - heart accuracy when reason_focus=outward_act: 0.000 (n=1)
+- Qwen2.5-1.5B-Instruct/C3:
+  - answer distribution: A=0.896, B=0.104
+  - top reason_focus rates: motive=0.825, outward_act=0.175
+  - heart accuracy when reason_focus=motive: 0.591 (n=198)
+  - heart accuracy when reason_focus=outward_act: 0.476 (n=42)
+- Qwen2.5-1.5B-Instruct/C4:
+  - answer distribution: A=0.133, B=0.867
+  - top reason_focus rates: motive=1.000
+  - heart accuracy when reason_focus=motive: 0.583 (n=240)
+
+### HeartBench Main Results
+- Qwen2.5-0.5B-Instruct/C0:
+  - answer distribution: A=1.000, B=0.000
+  - top reason_focus rates: motive=1.000
+  - heart accuracy when reason_focus=motive: 0.506 (n=237)
+- Qwen2.5-0.5B-Instruct/C1:
+  - answer distribution: A=1.000, B=0.000
+  - top reason_focus rates: motive=1.000
+  - heart accuracy when reason_focus=motive: 0.519 (n=210)
+- Qwen2.5-0.5B-Instruct/C2:
+  - answer distribution: A=1.000, B=0.000
+  - top reason_focus rates: motive=0.996, outward_act=0.004
+  - heart accuracy when reason_focus=motive: 0.511 (n=229)
+  - heart accuracy when reason_focus=outward_act: 1.000 (n=1)
+- Qwen2.5-0.5B-Instruct/C3:
+  - answer distribution: A=1.000, B=0.000
+  - top reason_focus rates: motive=0.995, outward_act=0.005
+  - heart accuracy when reason_focus=motive: 0.520 (n=200)
+  - heart accuracy when reason_focus=outward_act: 1.000 (n=1)
+- Qwen2.5-0.5B-Instruct/C4:
+  - answer distribution: A=1.000, B=0.000
+  - top reason_focus rates: motive=0.995, unclear=0.005
+  - heart accuracy when reason_focus=motive: 0.514 (n=214)
+  - heart accuracy when reason_focus=unclear: 1.000 (n=1)

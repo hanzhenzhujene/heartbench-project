@@ -1,0 +1,27 @@
+experiment:
+  name: "heartbench_christian_framing_corrected"
+
+benchmarks:
+  heartbench:
+    role: primary
+    benchmark_file: "benchmark/heartbench_240.jsonl"
+    description: "240-item custom benchmark with explicit heart-level contrasts"
+  heartbench_dev:
+    role: diagnostic_sample
+    benchmark_file: "benchmark/heartbench_dev.jsonl"
+    description: "60-item stratified diagnostic slice of HeartBench for faster corrected reruns"
+  moral_stories_supported:
+    role: secondary
+    benchmark_file: "benchmark/moral_stories_supported.jsonl"
+    description: "Externally sourced Moral Stories subset filtered to items with explicit motive evidence"
+
+default_benchmark: "heartbench"
+
+main:
+  conditions: ["C0", "C1", "C2", "C3", "C4"]
+  models: ["Qwen/Qwen2.5-1.5B-Instruct"]
+
+evaluation:
+  order_balance: true
+  consistency_required: true
+  max_new_tokens: 48

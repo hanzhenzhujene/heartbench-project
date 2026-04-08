@@ -1,0 +1,33 @@
+conditions:
+  - id: "C0"
+    name: "baseline"
+    file: "prompts/baseline.txt"
+    description: "No added framing"
+  - id: "C1"
+    name: "neutral_heart_sensitive"
+    file: "prompts/neutral_heart_sensitive.txt"
+    description: "Explicitly instruct to consider motive, intention, and inward orientation"
+  - id: "C2"
+    name: "christian_heart_focused"
+    file: "prompts/christian_heart_focused.txt"
+    description: "Christian moral framing emphasizing the heart"
+  - id: "C3"
+    name: "scripture_style"
+    file: "prompts/scripture_style.txt"
+    description: "Scripture-style language about what proceeds from the heart"
+  - id: "C4"
+    name: "secular_matched"
+    file: "prompts/secular_matched.txt"
+    description: "Secular paraphrase matched in semantic content to Christian framing"
+
+repair_prompt_file: "prompts/repair_prompt.txt"
+
+output_schema:
+  keys:
+    - heart_worse
+    - morally_worse
+    - reason_focus
+  allowed_values:
+    heart_worse: ["A", "B"]
+    morally_worse: ["A", "B"]
+    reason_focus: ["outward_act", "motive", "consequence", "rule", "unclear"]

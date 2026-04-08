@@ -1,0 +1,599 @@
+{
+  "per_model_condition": {
+    "Qwen2.5-0.5B-Instruct/C0": {
+      "heart_accuracy": {
+        "accuracy": 0.5384615384615384,
+        "n": 26,
+        "correct": 14
+      },
+      "moral_accuracy": {
+        "accuracy": 0.46153846153846156,
+        "n": 26,
+        "correct": 12
+      },
+      "reason_focus": {
+        "motive": {
+          "count": 26,
+          "rate": 1.0
+        }
+      },
+      "surface_overweighting": {
+        "rate": 0.0,
+        "n": 22,
+        "surface_count": 0
+      },
+      "dissociation": {
+        "rate": 1.0,
+        "n": 26,
+        "dissociated_count": 26
+      },
+      "by_family": {
+        "flawed_act_benevolent_motive": {
+          "accuracy": 0.5,
+          "n": 6,
+          "correct": 3
+        },
+        "good_act_corrupt_motive": {
+          "accuracy": 0.6,
+          "n": 10,
+          "correct": 6
+        },
+        "mixed_motive_hard": {
+          "accuracy": 0.5,
+          "n": 10,
+          "correct": 5
+        }
+      },
+      "by_difficulty": {
+        "hard": {
+          "accuracy": 0.0,
+          "n": 1,
+          "correct": 0
+        },
+        "medium": {
+          "accuracy": 0.56,
+          "n": 25,
+          "correct": 14
+        }
+      }
+    },
+    "Qwen2.5-0.5B-Instruct/C1": {
+      "heart_accuracy": {
+        "accuracy": 0.4782608695652174,
+        "n": 23,
+        "correct": 11
+      },
+      "moral_accuracy": {
+        "accuracy": 0.5217391304347826,
+        "n": 23,
+        "correct": 12
+      },
+      "reason_focus": {
+        "motive": {
+          "count": 23,
+          "rate": 1.0
+        }
+      },
+      "surface_overweighting": {
+        "rate": 0.0,
+        "n": 20,
+        "surface_count": 0
+      },
+      "dissociation": {
+        "rate": 1.0,
+        "n": 23,
+        "dissociated_count": 23
+      },
+      "by_family": {
+        "flawed_act_benevolent_motive": {
+          "accuracy": 0.42857142857142855,
+          "n": 7,
+          "correct": 3
+        },
+        "good_act_corrupt_motive": {
+          "accuracy": 0.5714285714285714,
+          "n": 7,
+          "correct": 4
+        },
+        "mixed_motive_hard": {
+          "accuracy": 0.4444444444444444,
+          "n": 9,
+          "correct": 4
+        }
+      },
+      "by_difficulty": {
+        "hard": {
+          "accuracy": null,
+          "n": 0,
+          "correct": 0
+        },
+        "medium": {
+          "accuracy": 0.4782608695652174,
+          "n": 23,
+          "correct": 11
+        }
+      }
+    },
+    "Qwen2.5-0.5B-Instruct/C2": {
+      "heart_accuracy": {
+        "accuracy": 0.5357142857142857,
+        "n": 28,
+        "correct": 15
+      },
+      "moral_accuracy": {
+        "accuracy": 0.4642857142857143,
+        "n": 28,
+        "correct": 13
+      },
+      "reason_focus": {
+        "motive": {
+          "count": 28,
+          "rate": 1.0
+        }
+      },
+      "surface_overweighting": {
+        "rate": 0.0,
+        "n": 24,
+        "surface_count": 0
+      },
+      "dissociation": {
+        "rate": 1.0,
+        "n": 28,
+        "dissociated_count": 28
+      },
+      "by_family": {
+        "flawed_act_benevolent_motive": {
+          "accuracy": 0.5,
+          "n": 8,
+          "correct": 4
+        },
+        "good_act_corrupt_motive": {
+          "accuracy": 0.6,
+          "n": 10,
+          "correct": 6
+        },
+        "mixed_motive_hard": {
+          "accuracy": 0.5,
+          "n": 10,
+          "correct": 5
+        }
+      },
+      "by_difficulty": {
+        "hard": {
+          "accuracy": 0.0,
+          "n": 1,
+          "correct": 0
+        },
+        "medium": {
+          "accuracy": 0.5555555555555556,
+          "n": 27,
+          "correct": 15
+        }
+      }
+    },
+    "Qwen2.5-0.5B-Instruct/C3": {
+      "heart_accuracy": {
+        "accuracy": 0.48,
+        "n": 25,
+        "correct": 12
+      },
+      "moral_accuracy": {
+        "accuracy": 0.52,
+        "n": 25,
+        "correct": 13
+      },
+      "reason_focus": {
+        "motive": {
+          "count": 24,
+          "rate": 0.96
+        },
+        "outward_act": {
+          "count": 1,
+          "rate": 0.04
+        }
+      },
+      "surface_overweighting": {
+        "rate": 0.047619047619047616,
+        "n": 21,
+        "surface_count": 1
+      },
+      "dissociation": {
+        "rate": 1.0,
+        "n": 25,
+        "dissociated_count": 25
+      },
+      "by_family": {
+        "flawed_act_benevolent_motive": {
+          "accuracy": 0.42857142857142855,
+          "n": 7,
+          "correct": 3
+        },
+        "good_act_corrupt_motive": {
+          "accuracy": 0.5555555555555556,
+          "n": 9,
+          "correct": 5
+        },
+        "mixed_motive_hard": {
+          "accuracy": 0.4444444444444444,
+          "n": 9,
+          "correct": 4
+        }
+      },
+      "by_difficulty": {
+        "hard": {
+          "accuracy": 0.0,
+          "n": 1,
+          "correct": 0
+        },
+        "medium": {
+          "accuracy": 0.5,
+          "n": 24,
+          "correct": 12
+        }
+      }
+    },
+    "Qwen2.5-0.5B-Instruct/C4": {
+      "heart_accuracy": {
+        "accuracy": 0.48,
+        "n": 25,
+        "correct": 12
+      },
+      "moral_accuracy": {
+        "accuracy": 0.52,
+        "n": 25,
+        "correct": 13
+      },
+      "reason_focus": {
+        "motive": {
+          "count": 24,
+          "rate": 0.96
+        },
+        "outward_act": {
+          "count": 1,
+          "rate": 0.04
+        }
+      },
+      "surface_overweighting": {
+        "rate": 0.047619047619047616,
+        "n": 21,
+        "surface_count": 1
+      },
+      "dissociation": {
+        "rate": 1.0,
+        "n": 25,
+        "dissociated_count": 25
+      },
+      "by_family": {
+        "flawed_act_benevolent_motive": {
+          "accuracy": 0.42857142857142855,
+          "n": 7,
+          "correct": 3
+        },
+        "good_act_corrupt_motive": {
+          "accuracy": 0.5,
+          "n": 8,
+          "correct": 4
+        },
+        "mixed_motive_hard": {
+          "accuracy": 0.5,
+          "n": 10,
+          "correct": 5
+        }
+      },
+      "by_difficulty": {
+        "hard": {
+          "accuracy": 0.0,
+          "n": 1,
+          "correct": 0
+        },
+        "medium": {
+          "accuracy": 0.5,
+          "n": 24,
+          "correct": 12
+        }
+      }
+    },
+    "Qwen2.5-1.5B-Instruct/C0": {
+      "heart_accuracy": {
+        "accuracy": 0.6333333333333333,
+        "n": 30,
+        "correct": 19
+      },
+      "moral_accuracy": {
+        "accuracy": 0.4666666666666667,
+        "n": 30,
+        "correct": 14
+      },
+      "reason_focus": {
+        "motive": {
+          "count": 28,
+          "rate": 0.9333333333333333
+        },
+        "outward_act": {
+          "count": 2,
+          "rate": 0.06666666666666667
+        }
+      },
+      "surface_overweighting": {
+        "rate": 0.07692307692307693,
+        "n": 26,
+        "surface_count": 2
+      },
+      "dissociation": {
+        "rate": 0.7666666666666667,
+        "n": 30,
+        "dissociated_count": 23
+      },
+      "by_family": {
+        "flawed_act_benevolent_motive": {
+          "accuracy": 0.7,
+          "n": 10,
+          "correct": 7
+        },
+        "good_act_corrupt_motive": {
+          "accuracy": 0.8,
+          "n": 10,
+          "correct": 8
+        },
+        "mixed_motive_hard": {
+          "accuracy": 0.4,
+          "n": 10,
+          "correct": 4
+        }
+      },
+      "by_difficulty": {
+        "hard": {
+          "accuracy": 0.0,
+          "n": 1,
+          "correct": 0
+        },
+        "medium": {
+          "accuracy": 0.6551724137931034,
+          "n": 29,
+          "correct": 19
+        }
+      }
+    },
+    "Qwen2.5-1.5B-Instruct/C1": {
+      "heart_accuracy": {
+        "accuracy": 0.5333333333333333,
+        "n": 30,
+        "correct": 16
+      },
+      "moral_accuracy": {
+        "accuracy": 0.43333333333333335,
+        "n": 30,
+        "correct": 13
+      },
+      "reason_focus": {
+        "motive": {
+          "count": 29,
+          "rate": 0.9666666666666667
+        },
+        "outward_act": {
+          "count": 1,
+          "rate": 0.03333333333333333
+        }
+      },
+      "surface_overweighting": {
+        "rate": 0.038461538461538464,
+        "n": 26,
+        "surface_count": 1
+      },
+      "dissociation": {
+        "rate": 0.23333333333333334,
+        "n": 30,
+        "dissociated_count": 7
+      },
+      "by_family": {
+        "flawed_act_benevolent_motive": {
+          "accuracy": 0.5,
+          "n": 10,
+          "correct": 5
+        },
+        "good_act_corrupt_motive": {
+          "accuracy": 0.6,
+          "n": 10,
+          "correct": 6
+        },
+        "mixed_motive_hard": {
+          "accuracy": 0.5,
+          "n": 10,
+          "correct": 5
+        }
+      },
+      "by_difficulty": {
+        "hard": {
+          "accuracy": 1.0,
+          "n": 1,
+          "correct": 1
+        },
+        "medium": {
+          "accuracy": 0.5172413793103449,
+          "n": 29,
+          "correct": 15
+        }
+      }
+    },
+    "Qwen2.5-1.5B-Instruct/C2": {
+      "heart_accuracy": {
+        "accuracy": 0.5666666666666667,
+        "n": 30,
+        "correct": 17
+      },
+      "moral_accuracy": {
+        "accuracy": 0.4666666666666667,
+        "n": 30,
+        "correct": 14
+      },
+      "reason_focus": {
+        "motive": {
+          "count": 29,
+          "rate": 0.9666666666666667
+        },
+        "outward_act": {
+          "count": 1,
+          "rate": 0.03333333333333333
+        }
+      },
+      "surface_overweighting": {
+        "rate": 0.038461538461538464,
+        "n": 26,
+        "surface_count": 1
+      },
+      "dissociation": {
+        "rate": 0.9666666666666667,
+        "n": 30,
+        "dissociated_count": 29
+      },
+      "by_family": {
+        "flawed_act_benevolent_motive": {
+          "accuracy": 0.6,
+          "n": 10,
+          "correct": 6
+        },
+        "good_act_corrupt_motive": {
+          "accuracy": 0.6,
+          "n": 10,
+          "correct": 6
+        },
+        "mixed_motive_hard": {
+          "accuracy": 0.5,
+          "n": 10,
+          "correct": 5
+        }
+      },
+      "by_difficulty": {
+        "hard": {
+          "accuracy": 0.0,
+          "n": 1,
+          "correct": 0
+        },
+        "medium": {
+          "accuracy": 0.5862068965517241,
+          "n": 29,
+          "correct": 17
+        }
+      }
+    },
+    "Qwen2.5-1.5B-Instruct/C3": {
+      "heart_accuracy": {
+        "accuracy": 0.6333333333333333,
+        "n": 30,
+        "correct": 19
+      },
+      "moral_accuracy": {
+        "accuracy": 0.4666666666666667,
+        "n": 30,
+        "correct": 14
+      },
+      "reason_focus": {
+        "motive": {
+          "count": 25,
+          "rate": 0.8333333333333334
+        },
+        "outward_act": {
+          "count": 5,
+          "rate": 0.16666666666666666
+        }
+      },
+      "surface_overweighting": {
+        "rate": 0.19230769230769232,
+        "n": 26,
+        "surface_count": 5
+      },
+      "dissociation": {
+        "rate": 0.9,
+        "n": 30,
+        "dissociated_count": 27
+      },
+      "by_family": {
+        "flawed_act_benevolent_motive": {
+          "accuracy": 0.7,
+          "n": 10,
+          "correct": 7
+        },
+        "good_act_corrupt_motive": {
+          "accuracy": 0.7,
+          "n": 10,
+          "correct": 7
+        },
+        "mixed_motive_hard": {
+          "accuracy": 0.5,
+          "n": 10,
+          "correct": 5
+        }
+      },
+      "by_difficulty": {
+        "hard": {
+          "accuracy": 0.0,
+          "n": 1,
+          "correct": 0
+        },
+        "medium": {
+          "accuracy": 0.6551724137931034,
+          "n": 29,
+          "correct": 19
+        }
+      }
+    },
+    "Qwen2.5-1.5B-Instruct/C4": {
+      "heart_accuracy": {
+        "accuracy": 0.5333333333333333,
+        "n": 30,
+        "correct": 16
+      },
+      "moral_accuracy": {
+        "accuracy": 0.5,
+        "n": 30,
+        "correct": 15
+      },
+      "reason_focus": {
+        "motive": {
+          "count": 30,
+          "rate": 1.0
+        }
+      },
+      "surface_overweighting": {
+        "rate": 0.0,
+        "n": 26,
+        "surface_count": 0
+      },
+      "dissociation": {
+        "rate": 0.03333333333333333,
+        "n": 30,
+        "dissociated_count": 1
+      },
+      "by_family": {
+        "flawed_act_benevolent_motive": {
+          "accuracy": 0.5,
+          "n": 10,
+          "correct": 5
+        },
+        "good_act_corrupt_motive": {
+          "accuracy": 0.6,
+          "n": 10,
+          "correct": 6
+        },
+        "mixed_motive_hard": {
+          "accuracy": 0.5,
+          "n": 10,
+          "correct": 5
+        }
+      },
+      "by_difficulty": {
+        "hard": {
+          "accuracy": 1.0,
+          "n": 1,
+          "correct": 1
+        },
+        "medium": {
+          "accuracy": 0.5172413793103449,
+          "n": 29,
+          "correct": 15
+        }
+      }
+    }
+  },
+  "total_scored": 300
+}

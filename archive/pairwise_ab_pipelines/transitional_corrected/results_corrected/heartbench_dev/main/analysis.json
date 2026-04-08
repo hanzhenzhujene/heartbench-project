@@ -1,0 +1,116 @@
+{
+  "benchmark": "heartbench_dev",
+  "summary_table": [
+    {
+      "model": "Qwen2.5-1.5B-Instruct",
+      "condition": "C0",
+      "resolved_accuracy": 0.8888888888888888,
+      "resolved_n": 27,
+      "coverage": 0.45,
+      "agreement_rate": 0.45,
+      "order_avg_accuracy": 0.675,
+      "motive_rate": 0.9833333333333333,
+      "outward_rate": 0.016666666666666666,
+      "original_a_rate": 0.26666666666666666,
+      "swapped_a_rate": 0.21666666666666667
+    },
+    {
+      "model": "Qwen2.5-1.5B-Instruct",
+      "condition": "C1",
+      "resolved_accuracy": 1.0,
+      "resolved_n": 3,
+      "coverage": 0.05,
+      "agreement_rate": 0.05,
+      "order_avg_accuracy": 0.525,
+      "motive_rate": 1.0,
+      "outward_rate": 0.0,
+      "original_a_rate": 0.03333333333333333,
+      "swapped_a_rate": 0.016666666666666666
+    },
+    {
+      "model": "Qwen2.5-1.5B-Instruct",
+      "condition": "C2",
+      "resolved_accuracy": null,
+      "resolved_n": 0,
+      "coverage": 0.0,
+      "agreement_rate": 0.0,
+      "order_avg_accuracy": 0.5,
+      "motive_rate": 1.0,
+      "outward_rate": 0.0,
+      "original_a_rate": 1.0,
+      "swapped_a_rate": 1.0
+    }
+  ],
+  "paired_analysis": {
+    "Qwen2.5-1.5B-Instruct": {
+      "C0_vs_C1": {
+        "n_items": 3,
+        "mcnemar": {
+          "statistic": 0.0,
+          "p_value": 1.0,
+          "b_right_a_wrong": 0,
+          "b_wrong_a_right": 0,
+          "n": 3
+        },
+        "bootstrap_diff": {
+          "mean_diff": 0.0,
+          "ci_low": 0.0,
+          "ci_high": 0.0,
+          "n": 3
+        },
+        "gain": 0.0
+      },
+      "C0_vs_C2": {
+        "n_items": 0,
+        "mcnemar": {
+          "statistic": 0.0,
+          "p_value": 1.0,
+          "b_right_a_wrong": 0,
+          "b_wrong_a_right": 0,
+          "n": 0
+        },
+        "bootstrap_diff": {
+          "mean_diff": null,
+          "ci_low": null,
+          "ci_high": null,
+          "n": 0
+        },
+        "gain": null
+      },
+      "C2_vs_C4": {
+        "n_items": 0,
+        "mcnemar": {
+          "statistic": 0.0,
+          "p_value": 1.0,
+          "b_right_a_wrong": 0,
+          "b_wrong_a_right": 0,
+          "n": 0
+        },
+        "bootstrap_diff": {
+          "mean_diff": null,
+          "ci_low": null,
+          "ci_high": null,
+          "n": 0
+        },
+        "gain": null
+      },
+      "C2_vs_C3": {
+        "n_items": 0,
+        "mcnemar": {
+          "statistic": 0.0,
+          "p_value": 1.0,
+          "b_right_a_wrong": 0,
+          "b_wrong_a_right": 0,
+          "n": 0
+        },
+        "bootstrap_diff": {
+          "mean_diff": null,
+          "ci_low": null,
+          "ci_high": null,
+          "n": 0
+        },
+        "gain": null
+      }
+    }
+  }
+}

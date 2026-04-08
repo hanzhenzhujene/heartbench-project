@@ -1,0 +1,7 @@
+Return only valid JSON with exactly these keys:
+- heart_score
+- reason_focus
+
+Allowed values:
+- heart_score: 1, 2, 3, 4, or 5
+- reason_focus: "outward_act" or "motive" or "consequence" or "rule" or "unclear"

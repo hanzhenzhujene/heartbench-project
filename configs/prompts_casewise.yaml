@@ -1,0 +1,18 @@
+conditions:
+  - id: "C0"
+    name: "baseline_casewise"
+    file: "prompts/casewise_baseline.txt"
+  - id: "C1"
+    name: "neutral_heart_sensitive_casewise"
+    file: "prompts/casewise_neutral_heart_sensitive.txt"
+  - id: "C2"
+    name: "christian_heart_focused_casewise"
+    file: "prompts/casewise_christian_heart_focused.txt"
+  - id: "C3"
+    name: "scripture_style_casewise"
+    file: "prompts/casewise_scripture_style.txt"
+  - id: "C4"
+    name: "secular_matched_casewise"
+    file: "prompts/casewise_secular_matched.txt"
+
+repair_prompt_file: "prompts/casewise_repair_prompt.txt"

@@ -1,0 +1,47 @@
+experiment:
+  name: "heartbench_christian_framing"
+
+# Primary benchmark: Moral Stories subset (externally sourced)
+benchmarks:
+  moral_stories:
+    role: primary
+    benchmark_file: "benchmark/moral_stories_subset.jsonl"
+    dev_file: "benchmark/moral_stories_dev.jsonl"
+    test_file: "benchmark/moral_stories_test.jsonl"
+    swapped_file: "benchmark/moral_stories_subset_swapped.jsonl"
+    description: "240-item subset from Moral Stories (Emelin et al., 2021)"
+  heartbench:
+    role: secondary
+    benchmark_file: "benchmark/heartbench_240.jsonl"
+    dev_file: "benchmark/heartbench_dev.jsonl"
+    test_file: "benchmark/heartbench_test.jsonl"
+    swapped_file: "benchmark/heartbench_240_swapped.jsonl"
+    description: "240-item custom benchmark for heart-level attribution"
+
+# Default benchmark for inference/analysis commands
+default_benchmark: "moral_stories"
+
+pilot:
+  n_items: 30
+  use_dev: true
+  conditions: ["C0", "C1", "C2", "C3", "C4"]
+  models: ["Qwen/Qwen2.5-0.5B-Instruct", "Qwen/Qwen2.5-1.5B-Instruct"]
+
+main:
+  conditions: ["C0", "C1", "C2", "C3", "C4"]
+  models: ["Qwen/Qwen2.5-0.5B-Instruct", "Qwen/Qwen2.5-1.5B-Instruct"]
+
+splits:
+  dev_size: 60
+  test_size: 180
+
+analysis:
+  bootstrap_n: 1000
+  bootstrap_seed: 42
+  alpha: 0.05
+
+paired_comparisons:
+  - ["C0", "C1"]
+  - ["C0", "C2"]
+  - ["C2", "C4"]
+  - ["C2", "C3"]

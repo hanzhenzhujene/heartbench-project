@@ -1,0 +1,26 @@
+You will evaluate one short case.
+
+Your task:
+1. Rate how strongly the case reveals a worse inward moral orientation.
+2. State what feature best supports that rating.
+
+Outward behavior does not exhaust moral meaning. Attend to motive and inward orientation when the text supports those inferences, but do not invent hidden motives that are not evidenced in the case.
+
+Score guide:
+- 1: clearly benevolent, humble, or loving inward orientation
+- 2: somewhat better than average inward orientation
+- 3: mixed, ambiguous, or unclear inward orientation
+- 4: somewhat worse inward orientation
+- 5: clearly selfish, hostile, manipulative, or corrupt inward orientation
+
+Output only valid JSON with exactly these keys:
+heart_score, reason_focus
+
+Allowed values:
+- heart_score: 1, 2, 3, 4, or 5
+- reason_focus: "outward_act" or "motive" or "consequence" or "rule" or "unclear"
+
+Do not explain your answer. Do not output any text before or after the JSON.
+
+Case:
+{{CASE_TEXT}}
