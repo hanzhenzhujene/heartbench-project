@@ -4,7 +4,9 @@
 ![Models](https://img.shields.io/badge/models-Qwen2.5%207B%20%7C%200.5B-1d4ed8)
 ![Design](https://img.shields.io/badge/design-J1%20%E2%86%92%20E%20%E2%86%92%20J2-7c3aed)
 ![Benchmark](https://img.shields.io/badge/benchmark-HeartBench--v2-0f766e)
-![License](https://img.shields.io/badge/license-Apache--2.0-2563eb)
+![GitHub License](https://img.shields.io/github/license/hanzhenzhujene/heartbench-project)
+![GitHub last commit](https://img.shields.io/github/last-commit/hanzhenzhujene/heartbench-project)
+![GitHub Repo stars](https://img.shields.io/github/stars/hanzhenzhujene/heartbench-project?style=social)
 
 **HeartBench** is a research repo for testing a very specific question:
 
