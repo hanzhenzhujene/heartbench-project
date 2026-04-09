@@ -15,9 +15,9 @@ results_staged_paper_smoke/
 archive/local_results/
 
 # Local transition files not intended for the public repo
-research/configs/experiment_structured_v2.yaml
-research/configs/prompts_structured_v2.yaml
-research/prompts/structured_v2_*.txt
+materials/research/configs/experiment_structured_v2.yaml
+materials/research/configs/prompts_structured_v2.yaml
+materials/research/prompts/structured_v2_*.txt
 src/run_structured_casewise_inference.py
 
 # Editor and OS noise

@@ -70,17 +70,17 @@ def group_completeness(base_results_root: Path, groups: dict) -> dict:
 
 
 def audit() -> dict:
-    dual_exp = load_yaml(PROJECT_ROOT / "research" / "configs" / "experiment_dual_logit_v2.yaml")
-    dual_prompts = load_yaml(PROJECT_ROOT / "research" / "configs" / "prompts_dual_logit_v2.yaml")
-    structured_exp = load_yaml(PROJECT_ROOT / "research" / "configs" / "experiment_structured_v2.yaml")
-    structured_prompts = load_yaml(PROJECT_ROOT / "research" / "configs" / "prompts_structured_v2.yaml")
+    dual_exp = load_yaml(PROJECT_ROOT / "materials" / "research" / "configs" / "experiment_dual_logit_v2.yaml")
+    dual_prompts = load_yaml(PROJECT_ROOT / "materials" / "research" / "configs" / "prompts_dual_logit_v2.yaml")
+    structured_exp = load_yaml(PROJECT_ROOT / "materials" / "research" / "configs" / "experiment_structured_v2.yaml")
+    structured_prompts = load_yaml(PROJECT_ROOT / "materials" / "research" / "configs" / "prompts_structured_v2.yaml")
 
     dual_prompt_paths = [PROJECT_ROOT / cond["file"] for cond in dual_prompts["conditions"]]
     structured_prompt_paths = [PROJECT_ROOT / cond["file"] for cond in structured_prompts["conditions"]]
 
     heartbench_v2_path = PROJECT_ROOT / dual_exp["benchmarks"]["heartbench_v2"]["benchmark_file"]
     heartbench_v2_dev_path = PROJECT_ROOT / dual_exp["benchmarks"]["heartbench_v2_dev"]["benchmark_file"]
-    results_dir = PROJECT_ROOT / "results/dual_logit_v2" / "heartbench_v2" / "main"
+    results_dir = PROJECT_ROOT / "materials/results/dual_logit_v2" / "heartbench_v2" / "main"
 
     dual_condition_ids = [cond["id"] for cond in dual_prompts["conditions"]]
     structured_condition_ids = [cond["id"] for cond in structured_prompts["conditions"]]
@@ -108,7 +108,7 @@ def audit() -> dict:
         )
 
     execution_groups = dual_exp.get("execution_groups", {})
-    group_status = group_completeness(PROJECT_ROOT / "results/dual_logit_v2", execution_groups)
+    group_status = group_completeness(PROJECT_ROOT / "materials/results/dual_logit_v2", execution_groups)
     missing_by_group = {}
     for group_name, completeness in group_status.items():
         missing = [label for label, done in completeness.items() if not done]

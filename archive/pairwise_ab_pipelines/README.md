@@ -38,5 +38,5 @@ The later order-balanced pairwise correction attempt:
 
 These archived materials are preserved as snapshots, not as first-class maintained entry points. The canonical result for the project is the bias-resistant casewise-logit rerun described in:
 
-- [../../research/reports/bias_resistant_rerun_report.md](../../research/reports/bias_resistant_rerun_report.md)
-- [../../research/reports/final_status.md](../../research/reports/final_status.md)
+- [../../materials/research/reports/bias_resistant_rerun_report.md](../../materials/research/reports/bias_resistant_rerun_report.md)
+- [../../materials/research/reports/final_status.md](../../materials/research/reports/final_status.md)

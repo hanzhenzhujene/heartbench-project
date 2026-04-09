@@ -139,21 +139,21 @@ def write_report(lines: list[str], path: Path) -> None:
 def main():
     report_lines = []
 
-    ms = load_jsonl(PROJECT_ROOT / "benchmark" / "moral_stories_subset.jsonl")
-    ms_traced = load_jsonl(PROJECT_ROOT / "benchmark" / "moral_stories_subset_traced.jsonl")
-    hb = load_jsonl(PROJECT_ROOT / "benchmark" / "heartbench_240.jsonl")
+    ms = load_jsonl(PROJECT_ROOT / "materials" / "benchmark" / "moral_stories_subset.jsonl")
+    ms_traced = load_jsonl(PROJECT_ROOT / "materials" / "benchmark" / "moral_stories_subset_traced.jsonl")
+    hb = load_jsonl(PROJECT_ROOT / "materials" / "benchmark" / "heartbench_240.jsonl")
 
     report_lines.extend(benchmark_summary("Moral Stories Subset", ms, ms_traced))
     report_lines.append("")
     report_lines.extend(benchmark_summary("HeartBench-240", hb))
 
-    ms_results_path = PROJECT_ROOT / "results" / "moral_stories" / "main" / "all_results.jsonl"
+    ms_results_path = PROJECT_ROOT / "materials" / "results" / "moral_stories" / "main" / "all_results.jsonl"
     if ms_results_path.exists():
         report_lines.append("")
         ms_results = load_jsonl(ms_results_path)
         report_lines.extend(result_summary("Moral Stories Main Results", ms, ms_results))
 
-    hb_results_path = PROJECT_ROOT / "results" / "heartbench" / "main" / "all_results.jsonl"
+    hb_results_path = PROJECT_ROOT / "materials" / "results" / "heartbench" / "main" / "all_results.jsonl"
     if hb_results_path.exists():
         report_lines.append("")
         hb_results = load_jsonl(hb_results_path)

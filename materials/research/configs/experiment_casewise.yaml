@@ -1,0 +1,26 @@
+experiment:
+  name: "heartbench_christian_framing_casewise"
+
+benchmarks:
+  heartbench:
+    role: primary
+    benchmark_file: "materials/benchmark/heartbench_240.jsonl"
+    description: "240-item full HeartBench benchmark"
+  heartbench_dev:
+    role: primary_diagnostic
+    benchmark_file: "materials/benchmark/heartbench_dev.jsonl"
+    description: "60-item stratified HeartBench slice for bias-resistant reruns"
+  moral_stories_supported:
+    role: secondary_diagnostic
+    benchmark_file: "materials/benchmark/moral_stories_supported.jsonl"
+    description: "52-item Moral Stories subset with explicit motive support"
+
+default_benchmark: "heartbench_dev"
+
+main:
+  conditions: ["C0", "C1", "C2", "C3", "C4"]
+  models: ["Qwen/Qwen2.5-1.5B-Instruct"]
+
+evaluation:
+  max_new_tokens: 32
+  tie_is_unresolved: true

@@ -188,7 +188,7 @@ def main():
         "--group",
         type=str,
         default=None,
-        help="Optional execution group from research/configs/experiment_dual_logit_v2.yaml",
+        help="Optional execution group from materials/research/configs/experiment_dual_logit_v2.yaml",
     )
     parser.add_argument("--models", nargs="+", default=None, help="Models to run")
     parser.add_argument("--conditions", nargs="+", default=None, help="Conditions to run")
@@ -239,7 +239,7 @@ def main():
     output_dir = (
         Path(args.output_dir)
         if args.output_dir
-        else PROJECT_ROOT / "results/dual_logit_v2" / benchmark_key / "main"
+        else PROJECT_ROOT / "materials/results/dual_logit_v2" / benchmark_key / "main"
     )
     if args.limit is not None and args.output_dir is None:
         raise SystemExit(

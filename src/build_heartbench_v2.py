@@ -10,10 +10,10 @@ from pathlib import Path
 
 from utils import PROJECT_ROOT, load_jsonl, save_benchmark
 
-SOURCE_BENCHMARK = PROJECT_ROOT / "benchmark" / "heartbench_240.jsonl"
-OUTPUT_BENCHMARK = PROJECT_ROOT / "benchmark" / "heartbench_v2_120.jsonl"
-OUTPUT_DEV = PROJECT_ROOT / "benchmark" / "heartbench_v2_dev.jsonl"
-OUTPUT_TEST = PROJECT_ROOT / "benchmark" / "heartbench_v2_test.jsonl"
+SOURCE_BENCHMARK = PROJECT_ROOT / "materials" / "benchmark" / "heartbench_240.jsonl"
+OUTPUT_BENCHMARK = PROJECT_ROOT / "materials" / "benchmark" / "heartbench_v2_120.jsonl"
+OUTPUT_DEV = PROJECT_ROOT / "materials" / "benchmark" / "heartbench_v2_dev.jsonl"
+OUTPUT_TEST = PROJECT_ROOT / "materials" / "benchmark" / "heartbench_v2_test.jsonl"
 BENCHMARK_VERSION = "heartbench_v2.1"
 
 ITEMS_PER_FAMILY = 20

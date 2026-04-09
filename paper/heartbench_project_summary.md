@@ -20,8 +20,6 @@ The current repository evidence supports a stage-dissociation interpretation:
 - explanation-layer differences are larger and more reliable
 - those explanation differences survive lexical-echo control
 
-This project is intended as a **neutral empirical benchmark and analysis repo**, not as advocacy for a religious viewpoint.
-
 # Core Design
 
 The main paper-facing experiment uses a staged design:
@@ -47,7 +45,7 @@ That makes the interpretation cleaner. It helps distinguish:
 
 # Workflow At A Glance
 
-![](../assets/readme_methodology_workflow.png){ width=100% }
+![](../materials/assets/readme_methodology_workflow.png){ width=100% }
 
 # Main Result
 
@@ -83,7 +81,7 @@ This is the clearest evidence in the repository for **stage dissociation**.
 
 # Visual Summary
 
-![](../assets/readme_result_overview.png){ width=100% }
+![](../materials/assets/readme_result_overview.png){ width=100% }
 
 \newpage
 
@@ -92,15 +90,15 @@ This is the clearest evidence in the repository for **stage dissociation**.
 If you want the shortest path through the repository, start with:
 
 - `README.md`
-- `results/staged_paper/heartbench_v2/main/direct_comparison_summary.csv`
-- `results/staged_paper/heartbench_v2/main/same_j1_explanation_shift.csv`
-- `research/reports/staged_paper_revision_packet.md`
+- `materials/results/staged_paper/heartbench_v2/main/direct_comparison_summary.csv`
+- `materials/results/staged_paper/heartbench_v2/main/same_j1_explanation_shift.csv`
+- `materials/research/reports/staged_paper_revision_packet.md`
 
 If you want the benchmark and labeling materials, use:
 
-- `benchmark/heartbench_v2_120.jsonl`
-- `benchmark/heartbench_v2_relabel_blind_template.csv`
-- `research/reports/heartbench_v2_relabel_protocol.md`
+- `materials/benchmark/heartbench_v2_120.jsonl`
+- `materials/benchmark/heartbench_v2_relabel_blind_template.csv`
+- `materials/research/reports/heartbench_v2_relabel_protocol.md`
 
 If you want the code path for the main staged paper result, use:
 

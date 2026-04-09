@@ -37,14 +37,14 @@ def has_explicit_motive_support(item: dict) -> bool:
 
 
 def build_moral_stories_supported() -> list[dict]:
-    traced_path = PROJECT_ROOT / "benchmark" / "moral_stories_subset_traced.jsonl"
+    traced_path = PROJECT_ROOT / "materials" / "benchmark" / "moral_stories_subset_traced.jsonl"
     if not traced_path.exists():
         raise FileNotFoundError(f"Missing traced Moral Stories subset: {traced_path}")
 
     traced_items = load_jsonl(traced_path)
     supported = [item for item in traced_items if has_explicit_motive_support(item)]
 
-    benchmark_dir = PROJECT_ROOT / "benchmark"
+    benchmark_dir = PROJECT_ROOT / "materials" / "benchmark"
     benchmark_dir.mkdir(exist_ok=True)
 
     core_fields = [

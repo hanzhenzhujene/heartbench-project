@@ -5,9 +5,9 @@ from matplotlib.patches import FancyArrowPatch, FancyBboxPatch
 
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
-ASSETS_DIR = PROJECT_ROOT / "assets"
-PNG_OUT = ASSETS_DIR / "readme_methodology_workflow.png"
-SVG_OUT = ASSETS_DIR / "readme_methodology_workflow.svg"
+ASSETS_DIR = PROJECT_ROOT / "materials" / "assets"
+PNG_OUT = ASSETS_DIR / "generated_methodology_workflow.png"
+SVG_OUT = ASSETS_DIR / "generated_methodology_workflow.svg"
 
 
 def add_shadow_card(

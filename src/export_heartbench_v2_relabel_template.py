@@ -10,8 +10,8 @@ from pathlib import Path
 from utils import PROJECT_ROOT, load_jsonl
 
 
-DEFAULT_INPUT = PROJECT_ROOT / "benchmark" / "heartbench_v2_120.jsonl"
-DEFAULT_OUTPUT = PROJECT_ROOT / "benchmark" / "heartbench_v2_relabel_blind_template.csv"
+DEFAULT_INPUT = PROJECT_ROOT / "materials" / "benchmark" / "heartbench_v2_120.jsonl"
+DEFAULT_OUTPUT = PROJECT_ROOT / "materials" / "benchmark" / "heartbench_v2_relabel_blind_template.csv"
 
 
 BLIND_FIELDNAMES = [
