@@ -5,7 +5,7 @@ import pandas as pd
 
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
-RESULTS_CSV = PROJECT_ROOT / "results_staged_paper" / "heartbench_v2" / "main" / "direct_comparison_summary.csv"
+RESULTS_CSV = PROJECT_ROOT / "results/staged_paper" / "heartbench_v2" / "main" / "direct_comparison_summary.csv"
 ASSETS_DIR = PROJECT_ROOT / "assets"
 PNG_OUT = ASSETS_DIR / "readme_result_overview.png"
 SVG_OUT = ASSETS_DIR / "readme_result_overview.svg"

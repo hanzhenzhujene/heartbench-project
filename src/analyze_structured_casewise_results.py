@@ -177,7 +177,7 @@ def main():
         "--experiment-config",
         type=str,
         default=None,
-        help="Config stem under configs/ to use for benchmark paths",
+        help="Config stem under research/configs/ to use for benchmark paths",
     )
     args = parser.parse_args()
 

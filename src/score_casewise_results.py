@@ -162,7 +162,7 @@ def score_group(items: list) -> dict:
 
 
 def benchmark_configs() -> dict:
-    with open(PROJECT_ROOT / "configs" / "experiment_casewise_logit.yaml") as f:
+    with open(PROJECT_ROOT / "research" / "configs" / "experiment_casewise_logit.yaml") as f:
         return yaml.safe_load(f)["benchmarks"]
 
 
@@ -201,7 +201,7 @@ def main():
     parser.add_argument(
         "--results-root",
         type=str,
-        default="results_casewise_logit",
+        default="results/casewise_logit",
         help="Results root directory relative to project root",
     )
     args = parser.parse_args()

@@ -103,7 +103,7 @@ def validate_parsed_output(parsed: dict) -> bool:
 
 
 def get_config(name: str) -> dict:
-    return load_yaml(PROJECT_ROOT / "configs" / f"{name}.yaml")
+    return load_yaml(PROJECT_ROOT / "research" / "configs" / f"{name}.yaml")
 
 
 def ensure_dir(path: Union[str, Path]) -> Path:

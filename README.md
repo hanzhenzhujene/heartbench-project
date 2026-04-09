@@ -1,7 +1,7 @@
 # HeartBench
 
 [![Paper Summary PDF](https://img.shields.io/badge/PDF-paper--style%20summary-B91C1C)](paper/heartbench_project_summary.pdf)
-[![Main Results](https://img.shields.io/badge/results-staged%20main-166534)](results_staged_paper/heartbench_v2/main/direct_comparison_summary.csv)
+[![Main Results](https://img.shields.io/badge/results-staged%20main-166534)](results/staged_paper/heartbench_v2/main/direct_comparison_summary.csv)
 ![Models](https://img.shields.io/badge/models-Qwen2.5%207B%20%7C%200.5B-1d4ed8)
 ![Design](https://img.shields.io/badge/design-J1%20%E2%86%92%20E%20%E2%86%92%20J2-7c3aed)
 ![License](https://img.shields.io/github/license/hanzhenzhujene/heartbench-project)
@@ -20,13 +20,36 @@ The strongest current answer is:
 
 This repository is intended as a **neutral empirical resource**, not as an argument for or against any religious viewpoint. The Christian condition matters here as a **test case** within a controlled framing comparison.
 
+> Read first: [paper-style summary PDF](paper/heartbench_project_summary.pdf) | [methodology workflow](assets/readme_methodology_workflow.png) | [main staged results](results/staged_paper/heartbench_v2/main/direct_comparison_summary.csv)
+
 ## Start Here
 
 If you open the repository for the first time, the fastest path is:
 
 1. Read the [paper-style summary PDF](paper/heartbench_project_summary.pdf).
-2. Skim the [result overview figure](assets/readme_result_overview.png).
-3. Open the [main staged comparison table](results_staged_paper/heartbench_v2/main/direct_comparison_summary.csv).
+2. Skim the [methodology workflow figure](assets/readme_methodology_workflow.png).
+3. Skim the [result overview figure](assets/readme_result_overview.png).
+4. Open the [main staged comparison table](results/staged_paper/heartbench_v2/main/direct_comparison_summary.csv).
+
+## Methodology At A Glance
+
+The project workflow is:
+
+1. Build paired moral cases where motive and outward act can come apart.
+2. Compare a **religiously marked frame** to a **matched secular motive-focused frame**.
+3. Separate **first-pass judgment** from **explanation** and **re-judgment**.
+4. Test where movement actually shows up.
+
+![HeartBench methodology workflow](assets/readme_methodology_workflow.png)
+
+The key logic is simple but important:
+
+- `pre` framing is where we look for first-pass `J1` movement
+- `post` framing is where we test whether explanation and re-judgment move even when `J1` stays fixed
+- the matched secular control tells us what is generic motive salience versus specifically religious marking
+- the staged design prevents explanation text from being mistaken for direct judgment change
+
+## Result Snapshot
 
 ![HeartBench staged result overview](assets/readme_result_overview.png)
 
@@ -104,21 +127,33 @@ That means explanation differences remain even when first-pass `J1` is unchanged
 
 The root is intentionally organized around just a few places most readers need:
 
+```text
+heartbench_project/
+├── paper/        paper-style summary PDF and paper-facing materials
+├── assets/       README figures and visual assets
+├── benchmark/    benchmark releases and relabel templates
+├── research/     configs, prompt sets, and internal reports
+├── results/      main experiment outputs and figures
+├── src/          experiment runners, scorers, analyzers, builders
+└── archive/      legacy pipelines, notes, and exploratory material
+```
+
 | Path | What it is for |
 |---|---|
 | [paper/](paper) | Paper-facing summary materials, including the PDF |
 | [assets/](assets) | Homepage figures and visual assets |
 | [benchmark/](benchmark) | Benchmark files and relabel templates |
+| [research/](research) | Experiment configs, prompt sets, and internal reports |
+| [results/staged_paper/](results/staged_paper) | Main staged paper results |
+| [results/dual_logit_v2/](results/dual_logit_v2) | Dual-logit benchmark follow-on results |
+| [results/casewise_logit/](results/casewise_logit) | Corrected legacy benchmark results |
 | [src/](src) | Experiment runners, scorers, analyzers, and builders |
-| [results_staged_paper/](results_staged_paper) | Main staged paper results |
-| [results_dual_logit_v2/](results_dual_logit_v2) | Dual-logit benchmark follow-on results |
-| [reports/](reports) | Audits, summaries, and research notes |
 | [archive/](archive) | Historical pipelines and legacy planning material |
 
 If you only want the main paper-facing result, you can ignore most of the repository and focus on:
 
 - [paper/heartbench_project_summary.pdf](paper/heartbench_project_summary.pdf)
-- [results_staged_paper/heartbench_v2/main/](results_staged_paper/heartbench_v2/main/)
+- [results/staged_paper/heartbench_v2/main/](results/staged_paper/heartbench_v2/main/)
 
 ## Reproducibility
 
@@ -137,7 +172,7 @@ The staged pipeline records:
 
 See:
 
-- [results_staged_paper/heartbench_v2/main/run_manifest.json](results_staged_paper/heartbench_v2/main/run_manifest.json)
+- [results/staged_paper/heartbench_v2/main/run_manifest.json](results/staged_paper/heartbench_v2/main/run_manifest.json)
 
 ## Quick Start
 
@@ -162,8 +197,8 @@ python3 src/run_staged_paper_inference.py \
   --conditions baseline secular_pre christian_pre secular_post christian_post judgment_only \
   --variant-limit-per-family 1
 
-python3 src/analyze_staged_paper_results.py --benchmark heartbench_v2 --results-root results_staged_paper
-python3 src/plot_staged_paper_figures.py --benchmark heartbench_v2 --results-root results_staged_paper
+python3 src/analyze_staged_paper_results.py --benchmark heartbench_v2 --results-root results/staged_paper
+python3 src/plot_staged_paper_figures.py --benchmark heartbench_v2 --results-root results/staged_paper
 ```
 
 ## Important Caveat
@@ -173,7 +208,7 @@ python3 src/plot_staged_paper_figures.py --benchmark heartbench_v2 --results-roo
 Useful links:
 
 - [benchmark/heartbench_v2_relabel_blind_template.csv](benchmark/heartbench_v2_relabel_blind_template.csv)
-- [reports/heartbench_v2_relabel_protocol.md](reports/heartbench_v2_relabel_protocol.md)
+- [research/reports/heartbench_v2_relabel_protocol.md](research/reports/heartbench_v2_relabel_protocol.md)
 
 ## Legacy Material
 

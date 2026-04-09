@@ -12,6 +12,7 @@ venv/
 results_staged_paper_probe/
 results_staged_paper_probe_ollama/
 results_staged_paper_smoke/
+archive/local_results/
 
 # Editor and OS noise
 *.swp

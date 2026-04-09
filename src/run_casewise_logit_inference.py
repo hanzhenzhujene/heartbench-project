@@ -106,7 +106,7 @@ def main():
     output_dir = (
         Path(args.output_dir)
         if args.output_dir
-        else PROJECT_ROOT / "results_casewise_logit" / benchmark_key / "main"
+        else PROJECT_ROOT / "results/casewise_logit" / benchmark_key / "main"
     )
     ensure_dir(output_dir)
 

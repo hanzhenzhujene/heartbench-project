@@ -608,13 +608,13 @@ def main():
     parser.add_argument(
         "--results-root",
         type=str,
-        default="results_staged_paper",
+        default="results/staged_paper",
         help="Results root directory relative to project root",
     )
     args = parser.parse_args()
 
     experiment_cfg = get_config("experiment_staged_paper")
-    lexicon_cfg = load_yaml(PROJECT_ROOT / "configs" / "explanation_lexicons.yaml")
+    lexicon_cfg = load_yaml(PROJECT_ROOT / "research" / "configs" / "explanation_lexicons.yaml")
 
     benchmark_key = args.benchmark or experiment_cfg["default_benchmark"]
     if benchmark_key not in experiment_cfg["benchmarks"]:

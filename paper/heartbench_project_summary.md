@@ -45,6 +45,10 @@ That makes the interpretation cleaner. It helps distinguish:
 - generic motive salience
 - specifically Christian rhetorical uptake
 
+# Workflow At A Glance
+
+![](../assets/readme_methodology_workflow.png){ width=100% }
+
 # Main Result
 
 ## Direct Christian-vs-secular contrasts on HeartBench-v2 main
@@ -88,15 +92,15 @@ This is the clearest evidence in the repository for **stage dissociation**.
 If you want the shortest path through the repository, start with:
 
 - `README.md`
-- `results_staged_paper/heartbench_v2/main/direct_comparison_summary.csv`
-- `results_staged_paper/heartbench_v2/main/same_j1_explanation_shift.csv`
-- `reports/staged_paper_revision_packet.md`
+- `results/staged_paper/heartbench_v2/main/direct_comparison_summary.csv`
+- `results/staged_paper/heartbench_v2/main/same_j1_explanation_shift.csv`
+- `research/reports/staged_paper_revision_packet.md`
 
 If you want the benchmark and labeling materials, use:
 
 - `benchmark/heartbench_v2_120.jsonl`
 - `benchmark/heartbench_v2_relabel_blind_template.csv`
-- `reports/heartbench_v2_relabel_protocol.md`
+- `research/reports/heartbench_v2_relabel_protocol.md`
 
 If you want the code path for the main staged paper result, use:
 

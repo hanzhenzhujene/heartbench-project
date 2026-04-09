@@ -205,7 +205,7 @@ def score_group(items: list[dict]) -> dict:
 
 
 def benchmark_configs(config_name: str) -> dict:
-    with open(PROJECT_ROOT / "configs" / f"{config_name}.yaml") as f:
+    with open(PROJECT_ROOT / "research" / "configs" / f"{config_name}.yaml") as f:
         return yaml.safe_load(f)["benchmarks"]
 
 
@@ -291,7 +291,7 @@ def main():
         "--experiment-config",
         type=str,
         default=None,
-        help="Config stem under configs/ to use for benchmark paths",
+        help="Config stem under research/configs/ to use for benchmark paths",
     )
     args = parser.parse_args()
 

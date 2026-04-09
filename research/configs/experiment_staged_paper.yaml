@@ -1,0 +1,72 @@
+experiment:
+  name: "heartbench_staged_mechanism_paper"
+  description: "Staged J1/E/J2 mechanism experiment for Christian-vs-secular framing"
+
+benchmarks:
+  heartbench_v2:
+    role: primary_mechanism
+    split: main
+    benchmark_file: "benchmark/heartbench_v2_120.jsonl"
+    description: "HeartBench-v2 full 120-item dissociation-focused benchmark"
+  heartbench_v2_dev:
+    role: primary_mechanism_dev
+    split: dev
+    benchmark_file: "benchmark/heartbench_v2_dev.jsonl"
+    description: "HeartBench-v2 30-item diagnostic dev slice"
+
+default_benchmark: "heartbench_v2"
+
+main:
+  models:
+    - "qwen2.5:7b-instruct"
+    - "qwen2.5:0.5b-instruct"
+  conditions:
+    - "baseline"
+    - "secular_pre"
+    - "christian_pre"
+    - "secular_post"
+    - "christian_post"
+    - "judgment_only"
+
+generation:
+  temperature: 0
+  top_p: 1
+  do_sample: false
+  seed: 42
+  max_new_tokens_j1: 96
+  max_new_tokens_explanation: 180
+  max_new_tokens_j2: 96
+
+execution_groups:
+  dev_smoke_qwen05:
+    benchmark: "heartbench_v2_dev"
+    models:
+      - "qwen2.5:0.5b-instruct"
+    conditions:
+      - "baseline"
+      - "secular_pre"
+      - "christian_pre"
+      - "secular_post"
+      - "christian_post"
+      - "judgment_only"
+
+metadata:
+  save_results_root: "results/staged_paper"
+  paper_title_hint: "Christian framing and staged moral evaluation"
+
+heterogeneity_slices:
+  motive_salience_core:
+    - "same_act_different_motive"
+    - "good_act_corrupt_motive"
+    - "flawed_act_benevolent_motive"
+    - "same_restraint_different_posture"
+  appearance_vs_intention:
+    - "same_correction_different_heart"
+    - "same_restraint_different_posture"
+    - "same_act_different_motive"
+  good_act_bad_motive:
+    - "good_act_corrupt_motive"
+  bad_act_good_motive:
+    - "flawed_act_benevolent_motive"
+  mixed_stakeholder_context:
+    - "mixed_motive_hard"

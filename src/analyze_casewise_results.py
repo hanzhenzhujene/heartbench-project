@@ -171,7 +171,7 @@ def main():
     parser.add_argument(
         "--results-root",
         type=str,
-        default="results_casewise_logit",
+        default="results/casewise_logit",
         help="Results root directory relative to project root",
     )
     args = parser.parse_args()
