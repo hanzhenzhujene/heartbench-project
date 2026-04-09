@@ -10,6 +10,11 @@
 
 > When models see a **religiously marked frame** and a **matched secular motive-focused frame**, does the framing change the model's **first-pass exposed judgment**, or mainly the **explanation** it produces around that judgment?
 
+Reading key:
+
+![Judgment layer](https://img.shields.io/badge/Judgment-2563eb?style=flat-square)
+![Explanation layer](https://img.shields.io/badge/Explanation-a21caf?style=flat-square)
+
 The strongest current answer is:
 
 - **First-pass Christian-versus-secular judgment differences are small or null.**
@@ -31,14 +36,15 @@ The project logic is:
 
 - build paired cases where inward motive and outward act can come apart
 - compare a religiously marked frame to a matched secular motive-focused control
-- separate `J1` first-pass judgment, `E` explanation, and `J2` re-judgment
-- test whether movement appears at the decision layer or mainly at the explanation layer
+- ![Judgment layer](https://img.shields.io/badge/J1%20Judgment-2563eb?style=flat-square) first-pass exposed choice
+- ![Explanation layer](https://img.shields.io/badge/E%20Explanation-a21caf?style=flat-square) rationale and lexical/semantic shift
+- `J2` re-judgment checks revision pressure after explanation
 
 ## Main Finding
 
 ![HeartBench result overview](materials/assets/readme_result_overview.png)
 
-**Religiously marked framing changes how models explain a judgment more strongly than it changes the model's first-pass exposed choice.**
+**Religiously marked framing moves the ![Explanation layer](https://img.shields.io/badge/Explanation-a21caf?style=flat-square) more strongly than the ![Judgment layer](https://img.shields.io/badge/Judgment-2563eb?style=flat-square).**
 
 Why this is the key result:
 
