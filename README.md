@@ -8,7 +8,7 @@
 
 **HeartBench** asks a narrow empirical question about moral prompting in language models:
 
-> When models see a **religiously marked frame** and a **matched secular motive-focused frame**, does the framing change the model's **first-pass exposed judgment**, or mainly the **explanation** it produces around that judgment?
+> When models see a **religiously marked frame** and a **matched secular motive-focused frame**, does the framing change the model's first-pass exposed *judgment*, or mainly the *explanation* it produces around that *judgment*?
 
 Reading key:
 
@@ -17,9 +17,9 @@ Reading key:
 
 The strongest current answer is:
 
-- **First-pass Christian-versus-secular judgment differences are small or null.**
-- **Explanation-layer differences are larger and more reliable.**
-- **Those explanation differences survive lexical-echo control.**
+- First-pass Christian-versus-secular *judgment* differences are small or null.
+- *Explanation*-layer differences are larger and more reliable.
+- Those *explanation* differences survive lexical-echo control.
 
 ## Start Here
 
@@ -44,13 +44,13 @@ The project logic is:
 
 ![HeartBench result overview](materials/assets/readme_result_overview.png)
 
-**Religiously marked framing moves the ![Explanation layer](https://img.shields.io/badge/Explanation-a21caf?style=flat-square) more strongly than the ![Judgment layer](https://img.shields.io/badge/Judgment-2563eb?style=flat-square).**
+**Religiously marked framing moves the ![Explanation layer](https://img.shields.io/badge/Explanation-a21caf?style=flat-square) *explanation* layer more strongly than the ![Judgment layer](https://img.shields.io/badge/Judgment-2563eb?style=flat-square) *judgment* layer.**
 
 Why this is the key result:
 
-- the **pre-frame** contrast targets first-pass exposed judgment
-- the **post-frame** contrast targets explanation and re-judgment behavior
-- the clearest movement appears in **explanation metrics**, not in `J1`
+- the **pre-frame** contrast targets first-pass exposed *judgment*
+- the **post-frame** contrast targets *explanation* and re-judgment behavior
+- the clearest movement appears in *explanation* metrics, not in `J1`
 - in the matched post comparison, both models have `same_j1_rate = 1.0`, so explanation differences remain even when first-pass `J1` is unchanged itemwise
 
 Direct Christian-vs-secular contrasts on `HeartBench-v2` main:
