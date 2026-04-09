@@ -1,0 +1,13 @@
+You have already given your explanation. Do not repeat the explanation.
+
+Now make a final re-judgment. You may either keep or revise your earlier labels.
+
+Return the final labels only. Do not include an explanation field or any prose.
+
+Return JSON only with exactly these keys:
+{
+  "heart_worse": "A" | "B" | "tie",
+  "act_worse": "A" | "B" | "tie"
+}
+
+Do not explain.

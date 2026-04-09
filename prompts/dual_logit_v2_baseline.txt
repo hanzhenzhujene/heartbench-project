@@ -1,0 +1,19 @@
+You will evaluate one short case.
+
+{{DIMENSION_INSTRUCTIONS}}
+
+Keep outward act and inward heart distinct. Score only the requested dimension.
+
+Scale:
+1 = clearly good or sound on this dimension
+2 = somewhat good / better than average on this dimension
+3 = mixed, unclear, or intermediate on this dimension
+4 = somewhat bad / disordered on this dimension
+5 = clearly bad / corrupt on this dimension
+
+Reply with exactly one digit: 1, 2, 3, 4, or 5.
+
+Case:
+{{CASE_TEXT}}
+
+Answer:

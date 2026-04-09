@@ -1,0 +1,13 @@
+model,condition,j1_heart_shift,explanation_shift,pearson_r,pearson_p
+qwen2.5:0.5b-instruct,baseline,0.0,0.0,,
+qwen2.5:0.5b-instruct,christian_post,0.0,1.8002678344026615e-05,,
+qwen2.5:0.5b-instruct,christian_pre,0.0,-0.012362421768152903,-0.2912897727011565,0.11834618093867047
+qwen2.5:0.5b-instruct,judgment_only,,,,
+qwen2.5:0.5b-instruct,secular_post,0.0,-0.01373715631342289,,
+qwen2.5:0.5b-instruct,secular_pre,0.0,-0.015053708228236932,-0.2964433170504496,0.11168030592553785
+qwen2.5:7b-instruct,baseline,0.0,0.0,,
+qwen2.5:7b-instruct,christian_post,0.0,0.023733289406534127,,
+qwen2.5:7b-instruct,christian_pre,0.0,0.011168960158483609,0.050962984864222655,0.7891238375362928
+qwen2.5:7b-instruct,judgment_only,,,,
+qwen2.5:7b-instruct,secular_post,0.0,0.0036252080840585067,,
+qwen2.5:7b-instruct,secular_pre,0.06666666666666667,-0.006907461195306754,-0.025571787699579438,0.8932976752924804

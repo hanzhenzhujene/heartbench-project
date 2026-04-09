@@ -1,0 +1,6 @@
+Your previous reply was malformed.
+
+Return valid JSON only for the most recent task schema.
+If the most recent task asked for `heart_worse` and `act_worse`, return exactly those keys.
+If the most recent task asked for `explanation`, return exactly that key.
+Do not add markdown, code fences, or commentary.

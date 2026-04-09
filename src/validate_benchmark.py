@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Validate HeartBench-240 benchmark files."""
+"""Validate benchmark files across legacy and v2 schemas."""
 
 import json
 import sys
@@ -8,9 +8,83 @@ from pathlib import Path
 
 from schemas import (
     FAMILIES, SOURCE_TYPES, SETTING_TYPES, DIFFICULTIES,
-    AB_VALUES, PRIMARY_CUES, ITEMS_PER_FAMILY, TOTAL_ITEMS,
+    AB_VALUES, PRIMARY_CUES,
     BenchmarkItem,
 )
+
+
+PROFILE_BY_STEM = {
+    "heartbench_240": {
+        "schema": "legacy",
+        "expected_total": 240,
+        "items_per_family": 40,
+        "require_all_families": True,
+        "split_names": ["heartbench_dev.jsonl", "heartbench_test.jsonl"],
+    },
+    "heartbench_dev": {
+        "schema": "legacy",
+        "expected_total": 60,
+        "items_per_family": 10,
+        "require_all_families": True,
+        "split_names": [],
+    },
+    "heartbench_test": {
+        "schema": "legacy",
+        "expected_total": 180,
+        "items_per_family": 30,
+        "require_all_families": True,
+        "split_names": [],
+    },
+    "moral_stories_subset": {
+        "schema": "legacy",
+        "expected_total": 240,
+        "items_per_family": 40,
+        "require_all_families": True,
+        "split_names": ["moral_stories_dev.jsonl", "moral_stories_test.jsonl"],
+    },
+    "moral_stories_dev": {
+        "schema": "legacy",
+        "expected_total": 60,
+        "items_per_family": 10,
+        "require_all_families": True,
+        "split_names": [],
+    },
+    "moral_stories_test": {
+        "schema": "legacy",
+        "expected_total": 180,
+        "items_per_family": 30,
+        "require_all_families": True,
+        "split_names": [],
+    },
+    "moral_stories_supported": {
+        "schema": "legacy",
+        "expected_total": 52,
+        "items_per_family": None,
+        "require_all_families": False,
+        "split_names": [],
+    },
+    "heartbench_v2_120": {
+        "schema": "v2",
+        "expected_total": 120,
+        "items_per_family": 20,
+        "require_all_families": True,
+        "split_names": ["heartbench_v2_dev.jsonl", "heartbench_v2_test.jsonl"],
+    },
+    "heartbench_v2_dev": {
+        "schema": "v2",
+        "expected_total": 30,
+        "items_per_family": 5,
+        "require_all_families": True,
+        "split_names": [],
+    },
+    "heartbench_v2_test": {
+        "schema": "v2",
+        "expected_total": 90,
+        "items_per_family": 15,
+        "require_all_families": True,
+        "split_names": [],
+    },
+}
 
 
 def load_items(path: Path) -> list[dict]:
@@ -23,40 +97,139 @@ def load_items(path: Path) -> list[dict]:
     return items
 
 
-def validate_benchmark(path: Path) -> list[str]:
-    """Run all validation checks. Returns list of error/warning strings."""
+def get_profile(path: Path, items: list[dict]) -> dict:
+    stem = path.stem
+    if stem in PROFILE_BY_STEM:
+        return PROFILE_BY_STEM[stem]
+    if items and "gold_case_A_heart_score" in items[0]:
+        return {
+            "schema": "v2",
+            "expected_total": len(items),
+            "items_per_family": None,
+            "require_all_families": False,
+            "split_names": [],
+        }
+    return {
+        "schema": "legacy",
+        "expected_total": len(items),
+        "items_per_family": None,
+        "require_all_families": False,
+        "split_names": [],
+    }
+
+
+def validate_legacy_item(item: dict, item_label: str) -> list[str]:
     issues = []
-    items = load_items(path)
-
-    # 1. Total count
-    if len(items) != TOTAL_ITEMS:
-        issues.append(f"ERROR: Expected {TOTAL_ITEMS} items, got {len(items)}")
-
-    # 2. Family counts
-    fam_counts = Counter(it["family"] for it in items)
-    for fam in FAMILIES:
-        c = fam_counts.get(fam, 0)
-        if c != ITEMS_PER_FAMILY:
-            issues.append(f"ERROR: Family '{fam}' has {c} items, expected {ITEMS_PER_FAMILY}")
-    for fam in fam_counts:
-        if fam not in FAMILIES:
-            issues.append(f"ERROR: Unknown family '{fam}'")
-
-    # 3. Required fields and valid values
     required_fields = [
         "item_id", "family", "source_type", "setting_type", "domain",
         "difficulty", "case_A", "case_B", "gold_heart_worse",
         "gold_morally_worse", "gold_primary_cue",
     ]
-    for i, item in enumerate(items):
-        for field in required_fields:
-            if field not in item or not str(item[field]).strip():
-                issues.append(f"ERROR: Item {i} missing field '{field}'")
+    for field in required_fields:
+        if field not in item or not str(item[field]).strip():
+            issues.append(f"ERROR: Item {item_label} missing field '{field}'")
 
-        bi = BenchmarkItem.from_dict(item)
-        errs = bi.validate()
-        for e in errs:
-            issues.append(f"ERROR: Item {item.get('item_id', i)}: {e}")
+    bi = BenchmarkItem.from_dict(item)
+    errs = bi.validate()
+    for err in errs:
+        issues.append(f"ERROR: Item {item_label}: {err}")
+    return issues
+
+
+def validate_v2_item(item: dict, item_label: str) -> list[str]:
+    issues = []
+    required_fields = [
+        "benchmark_version", "item_id", "source_item_id", "family", "source_type", "setting_type", "domain",
+        "difficulty", "case_A", "case_B", "gold_case_A_heart_score", "gold_case_B_heart_score",
+        "gold_case_A_act_score", "gold_case_B_act_score", "gold_heart_worse", "gold_act_worse",
+        "dissociation_target", "gold_primary_cue",
+        "label_provenance_heart_pair", "label_provenance_case_scores", "label_provenance_act_pair",
+    ]
+    for field in required_fields:
+        if field not in item:
+            issues.append(f"ERROR: Item {item_label} missing field '{field}'")
+
+    if item.get("family") not in FAMILIES:
+        issues.append(f"ERROR: Item {item_label}: invalid family {item.get('family')}")
+    if item.get("source_type") not in SOURCE_TYPES:
+        issues.append(f"ERROR: Item {item_label}: invalid source_type {item.get('source_type')}")
+    if item.get("setting_type") not in SETTING_TYPES:
+        issues.append(f"ERROR: Item {item_label}: invalid setting_type {item.get('setting_type')}")
+    if item.get("difficulty") not in DIFFICULTIES:
+        issues.append(f"ERROR: Item {item_label}: invalid difficulty {item.get('difficulty')}")
+    if item.get("gold_heart_worse") not in AB_VALUES:
+        issues.append(f"ERROR: Item {item_label}: invalid gold_heart_worse {item.get('gold_heart_worse')}")
+    if item.get("gold_act_worse") not in {"A", "B", "tie"}:
+        issues.append(f"ERROR: Item {item_label}: invalid gold_act_worse {item.get('gold_act_worse')}")
+    if item.get("gold_primary_cue") not in PRIMARY_CUES:
+        issues.append(f"ERROR: Item {item_label}: invalid gold_primary_cue {item.get('gold_primary_cue')}")
+    if not isinstance(item.get("dissociation_target"), bool):
+        issues.append(f"ERROR: Item {item_label}: dissociation_target must be boolean")
+    if not str(item.get("benchmark_version", "")).strip():
+        issues.append(f"ERROR: Item {item_label}: benchmark_version is empty")
+
+    for field in [
+        "gold_case_A_heart_score", "gold_case_B_heart_score",
+        "gold_case_A_act_score", "gold_case_B_act_score",
+    ]:
+        value = item.get(field)
+        if not isinstance(value, int) or value not in {1, 2, 3, 4, 5}:
+            issues.append(f"ERROR: Item {item_label}: {field} must be an integer in 1-5")
+
+    heart_a = item.get("gold_case_A_heart_score")
+    heart_b = item.get("gold_case_B_heart_score")
+    act_a = item.get("gold_case_A_act_score")
+    act_b = item.get("gold_case_B_act_score")
+    if isinstance(heart_a, int) and isinstance(heart_b, int):
+        expected_heart = "A" if heart_a > heart_b else "B" if heart_b > heart_a else "tie"
+        if item.get("gold_heart_worse") != expected_heart:
+            issues.append(
+                f"ERROR: Item {item_label}: gold_heart_worse={item.get('gold_heart_worse')} "
+                f"does not match heart scores ({heart_a}, {heart_b})"
+            )
+    if isinstance(act_a, int) and isinstance(act_b, int):
+        expected_act = "A" if act_a > act_b else "B" if act_b > act_a else "tie"
+        if item.get("gold_act_worse") != expected_act:
+            issues.append(
+                f"ERROR: Item {item_label}: gold_act_worse={item.get('gold_act_worse')} "
+                f"does not match act scores ({act_a}, {act_b})"
+            )
+    return issues
+
+
+def validate_benchmark(path: Path) -> list[str]:
+    """Run all validation checks. Returns list of error/warning strings."""
+    issues = []
+    items = load_items(path)
+    profile = get_profile(path, items)
+    expected_total = profile["expected_total"]
+    items_per_family = profile["items_per_family"]
+    require_all_families = profile["require_all_families"]
+    schema = profile["schema"]
+
+    # 1. Total count
+    if len(items) != expected_total:
+        issues.append(f"ERROR: Expected {expected_total} items, got {len(items)}")
+
+    # 2. Family counts
+    fam_counts = Counter(it["family"] for it in items)
+    for fam in FAMILIES:
+        c = fam_counts.get(fam, 0)
+        if items_per_family is not None and c != items_per_family:
+            issues.append(f"ERROR: Family '{fam}' has {c} items, expected {items_per_family}")
+        elif require_all_families and c == 0:
+            issues.append(f"ERROR: Family '{fam}' has 0 items, expected >0")
+    for fam in fam_counts:
+        if fam not in FAMILIES:
+            issues.append(f"ERROR: Unknown family '{fam}'")
+
+    # 3. Required fields and valid values
+    for i, item in enumerate(items):
+        item_label = item.get("item_id", i)
+        if schema == "v2":
+            issues.extend(validate_v2_item(item, item_label))
+        else:
+            issues.extend(validate_legacy_item(item, item_label))
 
     # 4. Label balance
     hw_counts = Counter(it["gold_heart_worse"] for it in items)
@@ -190,15 +363,10 @@ def main():
     else:
         print("\nBenchmark PASSED validation.")
 
-    # Also validate splits - infer split names from benchmark name
-    stem = benchmark_path.stem  # e.g. heartbench_240 or moral_stories_subset
+    # Also validate known sibling splits for canonical stems
+    stem = benchmark_path.stem
     bench_dir = benchmark_path.parent
-    if "heartbench" in stem:
-        split_names = ["heartbench_dev.jsonl", "heartbench_test.jsonl"]
-    elif "moral_stories" in stem:
-        split_names = ["moral_stories_dev.jsonl", "moral_stories_test.jsonl"]
-    else:
-        split_names = []
+    split_names = PROFILE_BY_STEM.get(stem, {}).get("split_names", [])
 
     for split_name in split_names:
         split_path = bench_dir / split_name

@@ -1,0 +1,24 @@
+You will evaluate one short case.
+
+{{DIMENSION_INSTRUCTIONS}}
+
+Use this scaffold:
+1. Attend first to the outward deed.
+2. Attend also to what proceeds from the heart.
+3. Do not collapse the two dimensions into one. The outward deed does not exhaust the moral meaning of the case. Score only the requested dimension.
+
+Do not invent hidden motives. Use only what the text supports.
+
+Scale:
+1 = clearly good or sound on this dimension
+2 = somewhat good / better than average on this dimension
+3 = mixed, unclear, or intermediate on this dimension
+4 = somewhat bad / disordered on this dimension
+5 = clearly bad / corrupt on this dimension
+
+Reply with exactly one digit: 1, 2, 3, 4, or 5.
+
+Case:
+{{CASE_TEXT}}
+
+Answer:

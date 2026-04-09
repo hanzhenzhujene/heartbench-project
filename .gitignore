@@ -1,0 +1,18 @@
+.DS_Store
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ipynb_checkpoints/
+.venv/
+venv/
+.env
+
+# Local probe/smoke outputs not intended for the public repo
+results_staged_paper_probe/
+results_staged_paper_probe_ollama/
+results_staged_paper_smoke/
+
+# Editor and OS noise
+*.swp
+*.swo

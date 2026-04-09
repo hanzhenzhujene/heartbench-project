@@ -27,6 +27,28 @@ def bootstrap_ci(values: list[bool], n_boot: int = 1000, seed: int = 42,
     }
 
 
+def bootstrap_mean_ci(values: list[float], n_boot: int = 1000, seed: int = 42,
+                      alpha: float = 0.05) -> dict:
+    """Compute a bootstrap confidence interval for a numeric mean."""
+    if not values:
+        return {"mean": None, "ci_low": None, "ci_high": None, "n": 0}
+    rng = np.random.RandomState(seed)
+    arr = np.array(values, dtype=float)
+    boot_means = []
+    for _ in range(n_boot):
+        sample = rng.choice(arr, size=len(arr), replace=True)
+        boot_means.append(sample.mean())
+    boot_means = sorted(boot_means)
+    lo = boot_means[int(n_boot * alpha / 2)]
+    hi = boot_means[int(n_boot * (1 - alpha / 2))]
+    return {
+        "mean": float(arr.mean()),
+        "ci_low": float(lo),
+        "ci_high": float(hi),
+        "n": len(arr),
+    }
+
+
 def bootstrap_diff_ci(values_a: list[bool], values_b: list[bool],
                        n_boot: int = 1000, seed: int = 42,
                        alpha: float = 0.05) -> dict:
@@ -50,6 +72,66 @@ def bootstrap_diff_ci(values_a: list[bool], values_b: list[bool],
         "ci_high": float(hi),
         "n": len(diffs),
     }
+
+
+def bootstrap_numeric_diff_ci(values_a: list[float], values_b: list[float],
+                              n_boot: int = 1000, seed: int = 42,
+                              alpha: float = 0.05) -> dict:
+    """Bootstrap CI for paired numeric differences (B - A)."""
+    if not values_a or not values_b or len(values_a) != len(values_b):
+        return {"mean_diff": None, "ci_low": None, "ci_high": None, "n": 0}
+    rng = np.random.RandomState(seed)
+    arr_a = np.array(values_a, dtype=float)
+    arr_b = np.array(values_b, dtype=float)
+    diffs = arr_b - arr_a
+    boot_diffs = []
+    for _ in range(n_boot):
+        idx = rng.choice(len(diffs), size=len(diffs), replace=True)
+        boot_diffs.append(diffs[idx].mean())
+    boot_diffs = sorted(boot_diffs)
+    lo = boot_diffs[int(n_boot * alpha / 2)]
+    hi = boot_diffs[int(n_boot * (1 - alpha / 2))]
+    return {
+        "mean_diff": float(diffs.mean()),
+        "ci_low": float(lo),
+        "ci_high": float(hi),
+        "n": len(diffs),
+    }
+
+
+def paired_effect_size(values_a: list[float], values_b: list[float]) -> dict:
+    """Compute paired Cohen's dz for numeric outcomes (B - A)."""
+    if not values_a or not values_b or len(values_a) != len(values_b):
+        return {"effect_size_dz": None, "mean_diff": None, "sd_diff": None, "n": 0}
+    arr_a = np.array(values_a, dtype=float)
+    arr_b = np.array(values_b, dtype=float)
+    diffs = arr_b - arr_a
+    sd = diffs.std(ddof=1) if len(diffs) > 1 else 0.0
+    dz = None if sd == 0 else float(diffs.mean() / sd)
+    return {
+        "effect_size_dz": dz,
+        "mean_diff": float(diffs.mean()),
+        "sd_diff": float(sd),
+        "n": len(diffs),
+    }
+
+
+def paired_permutation_test(values_a: list[float], values_b: list[float],
+                            n_perm: int = 10000, seed: int = 42) -> dict:
+    """Paired sign-flip permutation test for numeric outcomes (B - A)."""
+    if not values_a or not values_b or len(values_a) != len(values_b):
+        return {"observed_mean_diff": None, "p_value": None, "n": 0}
+    rng = np.random.RandomState(seed)
+    arr_a = np.array(values_a, dtype=float)
+    arr_b = np.array(values_b, dtype=float)
+    diffs = arr_b - arr_a
+    observed = float(diffs.mean())
+    if np.allclose(diffs, 0):
+        return {"observed_mean_diff": observed, "p_value": 1.0, "n": len(diffs)}
+    signs = rng.choice([-1.0, 1.0], size=(n_perm, len(diffs)))
+    permuted = (signs * diffs).mean(axis=1)
+    p_val = float((np.abs(permuted) >= abs(observed)).mean())
+    return {"observed_mean_diff": observed, "p_value": p_val, "n": len(diffs)}
 
 
 def mcnemar_test(correct_a: list[bool], correct_b: list[bool]) -> dict:
@@ -85,6 +167,18 @@ def mcnemar_test(correct_a: list[bool], correct_b: list[bool]) -> dict:
         "b_right_a_wrong": b_right_a_wrong,
         "b_wrong_a_right": b_wrong_a_right,
         "n": len(correct_a),
+    }
+
+
+def wilcoxon_signed_rank(values_a: list[float], values_b: list[float]) -> dict:
+    """Wilcoxon signed-rank test for paired numeric outcomes."""
+    if not values_a or not values_b or len(values_a) != len(values_b):
+        return {"statistic": None, "p_value": None, "n": 0}
+    result = scipy_stats.wilcoxon(values_a, values_b, zero_method="wilcox", alternative="two-sided")
+    return {
+        "statistic": float(result.statistic),
+        "p_value": float(result.pvalue),
+        "n": len(values_a),
     }
 
 

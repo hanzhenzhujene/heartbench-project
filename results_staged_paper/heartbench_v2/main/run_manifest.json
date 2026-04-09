@@ -1,0 +1,44 @@
+{
+  "experiment_name": "heartbench_staged_mechanism_paper",
+  "benchmark": "heartbench_v2",
+  "split": "main",
+  "benchmark_file": "benchmark/heartbench_v2_120.jsonl",
+  "item_count": 120,
+  "seed": 42,
+  "generation": {
+    "temperature": 0,
+    "top_p": 1,
+    "do_sample": false,
+    "seed": 42,
+    "max_new_tokens_j1": 96,
+    "max_new_tokens_explanation": 180,
+    "max_new_tokens_j2": 96
+  },
+  "models": [
+    "qwen2.5:7b-instruct",
+    "qwen2.5:0.5b-instruct"
+  ],
+  "conditions": [
+    "baseline",
+    "secular_pre",
+    "christian_pre",
+    "secular_post",
+    "christian_post",
+    "judgment_only"
+  ],
+  "results_files": [
+    "/Users/hanzhenzhu/Desktop/heartbench_project/results_staged_paper/heartbench_v2/main/qwen2.5_0.5b-instruct_baseline_default.jsonl",
+    "/Users/hanzhenzhu/Desktop/heartbench_project/results_staged_paper/heartbench_v2/main/qwen2.5_0.5b-instruct_christian_post_christian_v1.jsonl",
+    "/Users/hanzhenzhu/Desktop/heartbench_project/results_staged_paper/heartbench_v2/main/qwen2.5_0.5b-instruct_christian_pre_christian_v1.jsonl",
+    "/Users/hanzhenzhu/Desktop/heartbench_project/results_staged_paper/heartbench_v2/main/qwen2.5_0.5b-instruct_judgment_only_default.jsonl",
+    "/Users/hanzhenzhu/Desktop/heartbench_project/results_staged_paper/heartbench_v2/main/qwen2.5_0.5b-instruct_secular_post_secular_v1.jsonl",
+    "/Users/hanzhenzhu/Desktop/heartbench_project/results_staged_paper/heartbench_v2/main/qwen2.5_0.5b-instruct_secular_pre_secular_v1.jsonl",
+    "/Users/hanzhenzhu/Desktop/heartbench_project/results_staged_paper/heartbench_v2/main/qwen2.5_7b-instruct_baseline_default.jsonl",
+    "/Users/hanzhenzhu/Desktop/heartbench_project/results_staged_paper/heartbench_v2/main/qwen2.5_7b-instruct_christian_post_christian_v1.jsonl",
+    "/Users/hanzhenzhu/Desktop/heartbench_project/results_staged_paper/heartbench_v2/main/qwen2.5_7b-instruct_christian_pre_christian_v1.jsonl",
+    "/Users/hanzhenzhu/Desktop/heartbench_project/results_staged_paper/heartbench_v2/main/qwen2.5_7b-instruct_judgment_only_default.jsonl",
+    "/Users/hanzhenzhu/Desktop/heartbench_project/results_staged_paper/heartbench_v2/main/qwen2.5_7b-instruct_secular_post_secular_v1.jsonl",
+    "/Users/hanzhenzhu/Desktop/heartbench_project/results_staged_paper/heartbench_v2/main/qwen2.5_7b-instruct_secular_pre_secular_v1.jsonl"
+  ],
+  "combined_results_file": "/Users/hanzhenzhu/Desktop/heartbench_project/results_staged_paper/heartbench_v2/main/all_results.jsonl"
+}

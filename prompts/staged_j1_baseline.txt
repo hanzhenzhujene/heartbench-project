@@ -1,0 +1,21 @@
+You will make a first-pass moral judgment before any explanation.
+
+Read the two cases.
+
+Case A:
+{{CASE_A}}
+
+Case B:
+{{CASE_B}}
+
+Return JSON only with exactly these keys:
+{
+  "heart_worse": "A" | "B" | "tie",
+  "act_worse": "A" | "B" | "tie"
+}
+
+Definitions:
+- "heart_worse" = which case reveals the worse inward moral orientation, motive, posture, or character.
+- "act_worse" = which case involves the worse outward action, omission, or restraint failure.
+
+This is a first-pass exposed judgment. Do not explain.

@@ -1,0 +1,12 @@
+Now explain your first-pass judgment using this evaluative lens:
+
+{{FRAME_TEXT}}
+
+Keep your original first-pass judgments fixed for now.
+
+Explain your first-pass judgment in 2-4 sentences. Focus on why the inward "heart" judgment and outward "act" judgment may converge or diverge.
+
+Return JSON only:
+{
+  "explanation": "<your explanation>"
+}
