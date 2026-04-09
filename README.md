@@ -10,7 +10,7 @@
 
 > When models see a **religiously marked frame** and a **matched secular motive-focused frame**, does the framing change the model's first-pass exposed *judgment*, or mainly the *explanation* it produces around that *judgment*?
 
-Reading key:
+Reading key for *judgment* vs *explanation*:
 
 ![Judgment layer](https://img.shields.io/badge/Judgment-2563eb?style=flat-square)
 ![Explanation layer](https://img.shields.io/badge/Explanation-a21caf?style=flat-square)
@@ -18,7 +18,7 @@ Reading key:
 The strongest current answer is:
 
 - First-pass Christian-versus-secular *judgment* differences are small or null.
-- *Explanation*-layer differences are larger and more reliable.
+- *explanation*-layer differences are larger and more reliable.
 - Those *explanation* differences survive lexical-echo control.
 
 ## Start Here
@@ -38,7 +38,7 @@ The project logic is:
 - compare a religiously marked frame to a matched secular motive-focused control
 - ![Judgment layer](https://img.shields.io/badge/J1%20Judgment-2563eb?style=flat-square) first-pass exposed choice
 - ![Explanation layer](https://img.shields.io/badge/E%20Explanation-a21caf?style=flat-square) rationale and lexical/semantic shift
-- `J2` re-judgment checks revision pressure after explanation
+- `J2` re-*judgment* checks revision pressure after *explanation*
 
 ## Main Finding
 
@@ -49,13 +49,13 @@ The project logic is:
 Why this is the key result:
 
 - the **pre-frame** contrast targets first-pass exposed *judgment*
-- the **post-frame** contrast targets *explanation* and re-judgment behavior
+- the **post-frame** contrast targets *explanation* and re-*judgment* behavior
 - the clearest movement appears in *explanation* metrics, not in `J1`
-- in the matched post comparison, both models have `same_j1_rate = 1.0`, so explanation differences remain even when first-pass `J1` is unchanged itemwise
+- in the matched post comparison, both models have `same_j1_rate = 1.0`, so *explanation* differences remain even when first-pass `J1` is unchanged itemwise
 
 Direct Christian-vs-secular contrasts on `HeartBench-v2` main:
 
-| Model | `christian_pre - secular_pre` on `J1` heart | `christian_pre - secular_pre` on `J1` act | `christian_post - secular_post` on explanation Christianization | `christian_post - secular_post` on controlled heart-focus | `christian_post - secular_post` on restructuring |
+| Model | `christian_pre - secular_pre` on `J1` heart | `christian_pre - secular_pre` on `J1` act | `christian_post - secular_post` on *explanation* Christianization | `christian_post - secular_post` on controlled heart-focus | `christian_post - secular_post` on restructuring |
 |---|---:|---:|---:|---:|---:|
 | `qwen2.5:7b-instruct` | `+0.017` (`p=0.7286`) | `-0.008` (`p=1.0`) | `+0.049` (`p<0.001`) | `+0.015` (`p<0.001`) | `+0.196` (`p<0.001`) |
 | `qwen2.5:0.5b-instruct` | `+0.033` (`p=0.2095`) | `+0.008` (`p=1.0`) | `+0.013` (`p<0.001`) | `+0.015` (`p<0.001`) | `+0.069` (`p=0.0366`) |
